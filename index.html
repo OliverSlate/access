@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odmowa Dostępu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #access-denied-container {
+            text-align: center;
+            border: 2px solid red;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: red;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+
+        input[type="password"] {
+            border-color: red; /* Red border for password input */
+        }
+
+        ul {
+            text-align: left;
+            margin: 0 auto 20px;
+            padding-left: 20px;
+            width: 80%;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #success-message {
+            display: none;
+            text-align: center;
+            color: green;
+        }
+
+        #success-message h2 {
+            font-size: 36px;
+            color: green;
+        }
+
+        #success-message p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main content for Access Denied -->
+    <div id="access-denied-container">
+        <h1>Odmowa Dostępu!</h1>
+        <input type="text" id="username" placeholder="Nazwa uzytkownika na IG"><br>
+        <input type="password" id="password" placeholder="Wprowadź hasło"><br>
+        <ul>
+            <li>moje drugie imie</li>
+            <li>ulubiony owoc</li>
+            <li>liczba rodzeństwa</li>
+            <li>ulubiony kolor</li>
+            <li>coś, co bardzo chcę spróbować</li>
+            <li>wszystko małymi literami</li>
+        </ul>
+        <button id="submit-button">Zatwierdź</button>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message">
+        <h2>Przyznano dostęp!</h2>
+        <p>hasło: lorem ipsum</p>
+    </div>
+
+    <script>
+        // Add event listener for the button
+        document.getElementById('submit-button').addEventListener('click', function() {
+            // Get the values from the input fields
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the username and password match the required values
+            const validUsernames = ['kvs.mh', 'olusolinek17'];
+            const validPassword = 'oskarmango3fioletowymangostynka';
+
+            if (validUsernames.includes(username) && password === validPassword) {
+                // Hide the access denied container and show the success message
+                document.getElementById('access-denied-container').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            } else {
+                alert('Odmowa dostępu! Sprawdź swoją nazwę użytkownika lub hasło.');
+            }
+        });
+    </script>
+
+</body>
+</html>
